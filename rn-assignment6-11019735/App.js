@@ -1,10 +1,10 @@
 import { View } from "react-native";
-import Header from "./components/Header";
+import Cart from "./components/Cart";
 
 export default function App() {
   return (
     <View>
-      <Header />
+      <Cart />
     </View>
   );
 }
