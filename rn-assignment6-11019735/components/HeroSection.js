@@ -1,7 +1,7 @@
 import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
-import { cartData } from "../Data/HomeScreenHeroSectionData";
-import { CartContext } from "./CartContext";
 import { useContext } from "react";
+import { CartContext } from "./CartContext";
+import { cartData } from "../Data/HomeScreenHeroSectionData";
 
 export default function HeroSection() {
   const { addItemToCart } = useContext(CartContext);
@@ -84,13 +84,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginLeft: 10,
   },
-
   filter: {
     width: 25,
     height: 25,
     resizeMode: "contain",
   },
-
   listContainer: {
     width: 50,
     height: 50,
