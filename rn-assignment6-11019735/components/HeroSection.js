@@ -1,7 +1,11 @@
-import { View, Text, Image, StyleSheet, ScrollView } from "react-native";
-import { cartData } from "../Data/CartHeroSectionData";
+import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
+import { cartData } from "../Data/HomeScreenHeroSectionData";
+import { CartContext } from "./CartContext";
+import { useContext } from "react";
 
 export default function HeroSection() {
+  const { addItemToCart } = useContext(CartContext);
+
   return (
     <View style={styles.wrapper}>
       <View style={styles.heroSectionHeader}>
@@ -26,15 +30,20 @@ export default function HeroSection() {
           <View style={styles.card} key={id}>
             <View style={styles.imageAndAddContainer}>
               <Image source={item.image} />
-              <Image
-                style={styles.add}
-                source={require("../assets/add_circle.png")}
-              />
+              <TouchableOpacity
+                style={styles.addButton}
+                onPress={() => addItemToCart(item)}
+              >
+                <Image
+                  style={styles.add}
+                  source={require("../assets/add_circle.png")}
+                />
+              </TouchableOpacity>
             </View>
             <View style={styles.textContainer}>
               <Text style={styles.attireType}>{item.attireType}</Text>
               <Text style={styles.description}>{item.description}</Text>
-              <Text style={styles.amount}>{item.amount}</Text>
+              <Text style={styles.amount}>${item.amount}</Text>
             </View>
           </View>
         ))}
@@ -48,7 +57,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     padding: 10,
     marginTop: 50,
-    marginBottom: 350,
+    marginBottom: 260,
   },
   heroSectionHeader: {
     flexDirection: "row",
@@ -114,11 +123,15 @@ const styles = StyleSheet.create({
   imageAndAddContainer: {
     position: "relative",
   },
+  addButton: {
+    position: "absolute",
+    top: 185,
+    right: 8,
+  },
   add: {
-    position: "absolute",
-    position: "absolute",
-    top: 190,
-    right: 10,
+    width: 25,
+    height: 25,
+    resizeMode: "contain",
   },
   textContainer: {
     textAlign: "right",
