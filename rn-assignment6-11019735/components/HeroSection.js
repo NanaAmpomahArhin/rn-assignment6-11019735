@@ -1,4 +1,5 @@
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet, ScrollView } from "react-native";
+import { cartData } from "../Data/CartHeroSectionData";
 
 export default function HeroSection() {
   return (
@@ -20,23 +21,41 @@ export default function HeroSection() {
           </View>
         </View>
       </View>
+      <View style={styles.cartContainer}>
+        {cartData.map((item, id) => (
+          <View style={styles.card} key={id}>
+            <View style={styles.imageAndAddContainer}>
+              <Image source={item.image} />
+              <Image
+                style={styles.add}
+                source={require("../assets/add_circle.png")}
+              />
+            </View>
+            <View style={styles.textContainer}>
+              <Text style={styles.attireType}>{item.attireType}</Text>
+              <Text style={styles.description}>{item.description}</Text>
+              <Text style={styles.amount}>{item.amount}</Text>
+            </View>
+          </View>
+        ))}
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   wrapper: {
-    flexDirection: "column",
-    alignItems: "space-between",
     justifyContent: "center",
-    top: 80,
-    left: -40,
+    padding: 10,
+    marginTop: 50,
+    marginBottom: 350,
   },
   heroSectionHeader: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    width: 300,
+    width: "100%",
+    marginBottom: 50,
   },
   ourStory: {
     letterSpacing: 2,
@@ -46,20 +65,21 @@ const styles = StyleSheet.create({
     width: 110,
     flexDirection: "row",
     justifyContent: "space-between",
-    left: 30,
   },
   filterContainer: {
     width: 50,
     height: 50,
     borderRadius: 25,
     backgroundColor: "lightgray",
-    resizeMode: "contain",
-    flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    marginLeft: 10,
   },
+
   filter: {
     width: 25,
+    height: 25,
+    resizeMode: "contain",
   },
 
   listContainer: {
@@ -67,14 +87,50 @@ const styles = StyleSheet.create({
     height: 50,
     borderRadius: 25,
     backgroundColor: "lightgray",
-    alignItems: "center",
-    resizeMode: "contain",
-    flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginRight: 10,
   },
   listView: {
     width: 25,
+    height: 25,
+    resizeMode: "contain",
+  },
+  cartContainer: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-around",
+    paddingVertical: 10,
+  },
+  card: {
+    width: "35%",
+    aspectRatio: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 10,
+    marginRight: 15,
+    marginBottom: 90,
+    marginLeft: 15,
+  },
+  imageAndAddContainer: {
+    position: "relative",
+  },
+  add: {
+    position: "absolute",
+    position: "absolute",
+    top: 190,
+    right: 10,
+  },
+  textContainer: {
+    textAlign: "right",
+    left: 20,
+    lineHeight: 20,
+  },
+  description: {
+    fontSize: 13,
+    width: 200,
+    color: "gray",
+  },
+  amount: {
+    color: "red",
   },
 });
