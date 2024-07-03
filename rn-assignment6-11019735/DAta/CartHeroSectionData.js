@@ -1,0 +1,58 @@
+export const cartData = [
+  {
+    attireType: "Office Wear",
+    description: "reversible angora cardigan",
+    amount: "$120",
+    image: require("../assets/dress1.png"),
+    id: 1,
+  },
+  {
+    attireType: "Black",
+    description: "reversible angora cardigan",
+    amount: "$120",
+    image: require("../assets/dress2.png"),
+    id: 2,
+  },
+  {
+    attireType: "ChurchWear",
+    description: "reversible angora cardigan",
+    amount: "$120",
+    image: require("../assets/dress3.png"),
+    id: 3,
+  },
+  {
+    attireType: "Lamerei",
+    description: "reversible angora cardigan",
+    amount: "$120",
+    image: require("../assets/dress4.png"),
+    id: 4,
+  },
+  {
+    attireType: "21WN",
+    description: "reversible angora cardigan",
+    amount: "$120",
+    image: require("../assets/dress5.png"),
+    id: 5,
+  },
+  {
+    attireType: "Lopo",
+    description: "reversible angora cardigan",
+    amount: "$120",
+    image: require("../assets/dress6.png"),
+    id: 6,
+  },
+  {
+    attireType: "21WN",
+    description: "reversible angora cardigan",
+    amount: "$120",
+    image: require("../assets/dress7.png"),
+    id: 7,
+  },
+  {
+    attireType: "lame",
+    description: "reversible angora cardigan",
+    amount: "$120",
+    image: require("../assets/dress3.png"),
+    id: 8,
+  },
+];
